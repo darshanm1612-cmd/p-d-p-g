@@ -4,15 +4,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t python-app .'
+                bat 'docker build -t python-app .'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'docker stop python-app || true'
-                sh 'docker rm python-app || true'
-                sh 'docker run -d -p 5000:5000 --name python-app python-app'
+                bat 'docker stop python-app || exit 0'
+                bat 'docker rm python-app || exit 0'
+                bat 'docker run -d -p 5000:5000 --name python-app python-app'
             }
         }
     }
