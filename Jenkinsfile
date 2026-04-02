@@ -12,7 +12,7 @@ pipeline {
             steps {
                 bat 'docker stop python-app || exit 0'
                 bat 'docker rm python-app || exit 0'
-                bat 'docker run -d -p 5000:5000 --name python-app python-app'
+                bat 'docker run -d -p 5001:5000 --name python-app python-app'
             }
         }
     }
